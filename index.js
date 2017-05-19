@@ -17,14 +17,13 @@ server.get('/', restify.serveStatic({
 	default: "index.html"
 }));
 
-server.get('/comics', function(req, res, next){
-	Comic.find({}, function(err, comic){
+server.get('/comics', function(req, res){
+	Comic.find(function(err, comics){
 		if (err) res.send(err);
 		else{
-			res.json(comic);
+			res.json(comics);
 		}
 	});
-	return next();
 });
 
 server.listen(port, function(){

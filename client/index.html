@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="angularApp">
 <head>
-	<title>Welcome!</title>
-</head>
-<body>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<p>Welcome to my webpage!</p>
+	<title>Welcome!</title>
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+    <style>
+        html                    { overflow-y:scroll; }
+        body                    { padding-top:50px; }
+        #todo-list              { margin-bottom:30px; }
+    </style>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="core.js"></script>
+</head>
+<body ng-controller="mainController">
+	<div class="container">
+
+		<div class="jumbotron text-center">
+            <h1>Here are some comics! <span class="label label-info">{{ comics.length }}</span></h1>
+        </div>
+
+        <div id="todo-list" class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+
+                <!-- LOOP OVER THE COMICS IN $scope.comics -->
+                <div class="checkbox" ng-repeat="comic in comics">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 
 </body>
 </html>
